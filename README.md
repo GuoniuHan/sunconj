@@ -87,6 +87,12 @@ This generates the output file [`output_frac_minus_1000.txt.gz`](output_frac_min
 from which the prime sets are extracted and provided in
 [`data_frac_minus_1000.txt`](data_frac_minus_1000.txt).
 
+> **Note.** The computation above (major bound `M = 1000`) takes a very long
+> time. For a first try, run it with a small parameter, for example
+> ```
+> python sunconj_frac.py 100 +1 true false
+> ```
+
 ### Proof of Theorem 5.2 for `s = +1`
 
 To reproduce the result of Theorem 5.2 for `s = +1`, run the following command
@@ -112,6 +118,12 @@ python sunconj_prime.py 100000 -1 true true > output_prime_minus_100000.txt
 This generates the output file [`output_prime_minus_100000.txt`](output_prime_minus_100000.txt),
 from which the prime sets are extracted and provided in
 [`data_prime_minus_100000.txt`](data_prime_minus_100000.txt).
+
+> **Note.** The computation above (major bound `M = 100000`) takes a very long
+> time. For a first try, run it with a small parameter, for example
+> ```
+> python sunconj_prime.py 1000 +1 true true
+> ```
 
 ### Proof of Theorem 5.3 for `s = +1`
 
