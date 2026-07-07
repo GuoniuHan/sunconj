@@ -8,17 +8,16 @@ A conjecture of Zhi-Wei Sun states that every positive rational number
 can be written as a finite sum of unit fractions whose denominators are
 of the form *p*+1 or *p*−1, where *p* runs over distinct primes.
 Both cases have recently been proved in full generality by Thomas Bloom.
-However, even for small integers such as *r*=2 or *r*=3,
-finding an explicit decomposition is highly non-trivial: the required
-primes can have hundreds of decimal digits, and the construction
-involves hundreds of elimination steps.
-We exhibit explicit decompositions for these two integer cases:
-the case *r*=2 with denominators *p*+1, using a set
-of 1963 distinct primes, and the case *r*=3 with denominators
-*p*−1, using a set of 698 distinct primes.
-The algorithm behind these constructions — based on beam search
-and splitting tables — may be of independent interest for related
-problems.
+Bloom's theorems are existence results; even for small integers such as
+*r*=2 or *r*=3, producing an explicit decomposition remains highly
+non-trivial, as the required primes can have hundreds of decimal digits.
+We give a computational construction of explicit, certified prime sets
+for two integer cases — *r*=2 with denominators *p*+1 and *r*=3 with
+denominators *p*−1 — and describe a beam-search method, guided by
+splitting tables, that also succeeds on several finite families of
+rational inputs. These experiments lead us to conjecture that every
+reciprocal 1/*d* admits such a decomposition with at most log₂ *d* + 1
+distinct primes.
 
 ## The full paper
 
@@ -186,9 +185,3 @@ python sunconj_reciprocal.py 3000 -1
 
 The first argument is the range bound `M`; the second is the shift
 `s ∈ {+1, -1}` (default `+1`).
-
-> **Note.** Checking up to `M = 3000` takes a very long time. For a first try,
-> run it with a small parameter, for example
-> ```
-> python sunconj_reciprocal.py 100 +1
-> ```
