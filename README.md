@@ -1,6 +1,6 @@
 # A constructive approach to unit fractions with shifted prime denominators
 
-**Guo-Niu Han** — 2026/05/02
+**Guo-Niu Han** — 2026/07/08
 
 ## Abstract
 
