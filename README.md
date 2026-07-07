@@ -33,9 +33,11 @@ problems.
 We collect the outputs of the program `sunconj.py` for the Sun's conjecture
 studied in the paper.
 
-> **Note.** The two `output_frac_*_1000.txt` files are large and are provided
-> here gzip-compressed (`.gz`). Run `gunzip <file>.gz` to obtain the plain-text
-> output referenced by the reproduction command.
+> **Note.** The extracted prime-set files `data_frac_*_1000.txt` are provided
+> here gzip-compressed (`.gz`); run `gunzip <file>.gz` to obtain the plain
+> text. The full raw outputs `output_frac_*_1000.txt` are very large and are
+> not included in the repository, but can be regenerated with the commands
+> below.
 
 ### Proof of Theorem 3
 
@@ -70,9 +72,9 @@ using the program [`sunconj_frac.py`](sunconj_frac.py):
 python sunconj_frac.py 1000 +1 true false > output_frac_plus_1000.txt
 ```
 
-This generates the output file [`output_frac_plus_1000.txt.gz`](output_frac_plus_1000.txt.gz),
-from which the prime sets are extracted and provided in
-[`data_frac_plus_1000.txt`](data_frac_plus_1000.txt).
+This command generates the large output file `output_frac_plus_1000.txt`
+(not included here); the prime sets extracted from it are provided in
+[`data_frac_plus_1000.txt.gz`](data_frac_plus_1000.txt.gz).
 
 > **Note.** The computation above (major bound `M = 1000`) takes a very long
 > time. For a first try, run it with a small parameter, for example
@@ -89,9 +91,9 @@ using the program [`sunconj_frac.py`](sunconj_frac.py):
 python sunconj_frac.py 1000 -1 true false > output_frac_minus_1000.txt
 ```
 
-This generates the output file [`output_frac_minus_1000.txt.gz`](output_frac_minus_1000.txt.gz),
-from which the prime sets are extracted and provided in
-[`data_frac_minus_1000.txt`](data_frac_minus_1000.txt).
+This command generates the large output file `output_frac_minus_1000.txt`
+(not included here); the prime sets extracted from it are provided in
+[`data_frac_minus_1000.txt.gz`](data_frac_minus_1000.txt.gz).
 
 > **Note.** The computation above (major bound `M = 1000`) takes a very long
 > time. For a first try, run it with a small parameter, for example
@@ -162,3 +164,31 @@ python sunconj_power.py 40 -1 true true > output_power_minus_40.txt
 This generates the output file [`output_power_minus_40.txt`](output_power_minus_40.txt),
 from which the prime sets are extracted and provided in
 [`data_power_minus_40.txt`](data_power_minus_40.txt).
+
+## Conjecture 7 (length of reciprocal decompositions)
+
+The paper conjectures that every reciprocal `1/d` (`d ≥ 2`) admits a
+shifted-prime decomposition `1/d = 1/(p_1 + s) + ... + 1/(p_k + s)` into
+distinct primes whose length satisfies `|P| = k ≤ log2(d) + 1`, for both
+shifts `s ∈ {+1, -1}`.
+
+The self-contained program [`sunconj_reciprocal.py`](sunconj_reciprocal.py)
+checks this conjecture. For each `d` from 2 to `M` it constructs a
+decomposition of `1/d`, verifies the identity in exact rational arithmetic,
+and checks the length bound `|P| ≤ log2(d) + 1`, printing any violation and a
+final summary. It embeds the decomposition algorithm, so it does **not**
+depend on `sunconj.py` at run time (only `gmpy2` is required).
+
+```
+python sunconj_reciprocal.py 3000 +1
+python sunconj_reciprocal.py 3000 -1
+```
+
+The first argument is the range bound `M`; the second is the shift
+`s ∈ {+1, -1}` (default `+1`).
+
+> **Note.** Checking up to `M = 3000` takes a very long time. For a first try,
+> run it with a small parameter, for example
+> ```
+> python sunconj_reciprocal.py 100 +1
+> ```
