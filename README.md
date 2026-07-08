@@ -164,7 +164,7 @@ This generates the output file [`output_power_minus_40.txt`](output_power_minus_
 from which the prime sets are extracted and provided in
 [`data_power_minus_40.txt`](data_power_minus_40.txt).
 
-## Conjecture 7 (length of reciprocal decompositions)
+## Conjecture 7 
 
 The paper conjectures that every reciprocal `1/d` (`d ≥ 2`) admits a
 shifted-prime decomposition `1/d = 1/(p_1 + s) + ... + 1/(p_k + s)` into
